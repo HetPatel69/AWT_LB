@@ -1,0 +1,19 @@
+.container{
+    background-color: black;
+    padding: 20px;
+}
+
+.box{
+    background-color: cornflowerblue;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container p{
+    background-color: cadetblue;
+    color: white;
+    padding: 10px;
+}
