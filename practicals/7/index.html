@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWT_LB_</title>
+    <title>AWT_LB_7</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="onchange">
+            <input onchange="changed()" type="text" name="changer" id="changer">
+        </div>
+        <p id="changed">type and enter in textbox to change</p>
+
+        <div class="hover">
+            <p onmouseover="changeSize()" onmouseout="resize()" id="hoverText">Hover mouse to increse size</p>
+        </div>
+
+    </div>
+
+    <script defer>
+        function changed() {
+            document.getElementById("changed").innerText = document.querySelector("#changer").value
+        }
+
+        function changeSize() {
+            document.getElementById("hoverText").style.fontSize = "2rem"
+        }
+        function resize() {
+            document.getElementById("hoverText").style.fontSize = "1rem"
+        }
+    </script>
 </body>
 </html>
