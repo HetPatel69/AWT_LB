@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWT_LB_</title>
+    <title>AWT_LB_10</title>
 </head>
 <body>
-    
+    <label for="colors">Select a colour for background</label>
+    <select onchange="changeColor()" name="colors" id="colors"></select>
+
+    <script>
+        colorOptions = ["white", "red", "blue", "yellow", "green", "black"]
+        select = document.getElementById("colors")
+        document.body.style.backgroundColor = colorOptions[0]
+        for (var i = 0; i <colorOptions.length; i++) {
+            var opt = document.createElement('option');
+            opt.value = colorOptions[i];
+            opt.innerHTML = colorOptions[i];
+            select.appendChild(opt);
+        }
+        function changeColor() {
+            document.body.style.backgroundColor = select = document.getElementById("colors").value            
+        }
+    </script>
 </body>
 </html>
