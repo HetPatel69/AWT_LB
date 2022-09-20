@@ -4,9 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWT_LB_</title>
+    <style>
+        .form,.container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form--input{
+            margin: 10px;
+        }
+        #tableSpace{
+            margin: 1rem;
+        }
+    </style>
+    <title>AWT_LB_8</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="form">
+            <div class="form--input">
+                <label for="row">Enter number of rows</label>
+                <input type="number" name="row" id="inputRow">
+            </div>
+            <div class="form--input">
+                <label for="column">Enter number of rows</label>
+                <input type="number" name="column" id="inputColumn">
+            </div>
+            <button onclick="generateTable()" id="generateTableButton">Generate table</button>
+        </div>
+
+        <div id="tableSpace"></div>
+    </div>
+
+    <script>
+        function generateTable() {
+            var myTableDiv = document.getElementById("tableSpace");
+
+            if (myTableDiv.hasChildNodes()) {
+                myTableDiv.innerHTML = ""
+            }
+            var row = document.getElementById("inputRow").value
+            var column = document.getElementById("inputColumn").value
+
+            if (row < 1 || column < 1) {
+                alert("Plese enter positive number greater than 0")
+                return
+            }
+            var table = document.createElement('TABLE');
+            table.border = '1';
+
+            var tableBody = document.createElement('TBODY');
+            table.appendChild(tableBody);
+
+            for (var i = 0; i < row; i++) {
+                var tr = document.createElement('TR');
+                tableBody.appendChild(tr);
+
+                for (var j = 0; j < column; j++) {
+                    var td = document.createElement('TD');
+                    td.width = '75';
+                    td.appendChild(document.createTextNode(i + "," + j));
+                    tr.appendChild(td);
+                }
+            }
+            myTableDiv.appendChild(table);
+        }
+    </script>
 </body>
 </html>
